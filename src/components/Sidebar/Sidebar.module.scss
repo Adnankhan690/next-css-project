@@ -1,0 +1,155 @@
+@import '../../styles/variables.scss';
+
+.sidebar {
+  width: 250px;
+  background-color: $dark-color;
+  color: white;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  transition: all 0.3s ease;
+
+  &.collapsed {
+    width: 80px;
+
+    .navLabel,
+    .userInfo {
+      display: none;
+    }
+
+    .logo {
+      font-size: 0;
+
+      &:first-letter {
+        font-size: 1.5rem;
+      }
+    }
+
+    .userAvatar {
+      margin: 0 auto;
+    }
+  }
+}
+
+.sidebarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-medium;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.toggleButton {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: $spacing-small;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.navigation {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: $spacing-medium 0;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  padding: $spacing-medium;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+  &:hover,
+  &.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+
+  &.active {
+    border-left: 4px solid $primary-color;
+  }
+}
+
+.navIcon {
+  margin-right: $spacing-medium;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.userSection {
+  padding: $spacing-medium;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.userAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: $primary-color;
+  margin-right: $spacing-medium;
+  flex-shrink: 0;
+}
+
+.userInfo {
+  overflow: hidden;
+
+  h3 {
+    margin: 0;
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.8rem;
+    opacity: 0.7;
+  }
+}
+
+.subNavItem {
+  margin-left:  70px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    z-index: 100;
+    transform: translateX(-100%);
+
+    &.open {
+      transform: translateX(0);
+    }
+
+    &.collapsed {
+      transform: translateX(-100%);
+    }
+  }
+}

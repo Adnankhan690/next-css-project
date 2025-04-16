@@ -1,0 +1,54 @@
+@import '../../../styles/variables.scss';
+
+.dashboard {
+  padding: $spacing-large;
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+
+  h1 {
+    color: $primary-color;
+    margin-bottom: $spacing-medium;
+  }
+
+  p {
+    margin-bottom: $spacing-large;
+    color: $dark-color;
+  }
+
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-medium;
+  max-width: 100px;
+  min-width: 40px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: gray;
+  color: white;
+  border-radius: 8px;
+}
+
+.action {
+  @include flex-center;
+  flex-direction: column;
+  padding: $spacing-medium;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: black;
+  }
+
+  &.active {
+    background-color: green;
+    border-radius: 8px;
+  }
+}
+
+
+// Menu Icon
+
+
+

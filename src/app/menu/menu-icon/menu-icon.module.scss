@@ -1,0 +1,53 @@
+.iconCon {
+  display: flex;
+  gap: 20px;
+}
+
+.menuIcon {
+  width: 30px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 0px;
+}
+
+.bar {
+  border: 2px solid black;
+}
+
+//Animated Menu Icon
+.animatedMenuIcon {
+  width: 35px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 0px;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 35px;
+  height: 4px;
+  background-color: black;
+  transition: all 0.3s ease;
+}
+
+
+.change {
+  .bar1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .bar2 {
+    opacity: 0;
+  }
+
+  .bar3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+}
