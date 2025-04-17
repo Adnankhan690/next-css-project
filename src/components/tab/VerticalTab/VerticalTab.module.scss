@@ -1,0 +1,50 @@
+.tabTitleCon {
+  border: 1px solid #e0e0e0;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ccc;
+  height: 200px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.tabTitleCon > div {
+  padding: 10px;
+  cursor: pointer;
+  &:hover {
+    background: #bbb;
+    transition: 0.3s ease;
+  }
+}
+.mainCon {
+  display: flex;
+  gap: 10px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+.tabCon {
+  padding: 10px;
+  position: relative;
+  width: 100%;
+}
+.tabTitle {
+  font-size: 16px;
+  font-weight: 600;
+}
+.active {
+  background: #bbb;
+  transition: 0.3s ease;
+}
+
+.closeTab {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+
+  &:hover {
+    cursor: pointer;
+    color: red;
+    transition: 0.3s ease;
+  }
+}
