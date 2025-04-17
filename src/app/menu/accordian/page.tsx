@@ -30,24 +30,16 @@ const accordianItems: AccordianItems[] = [
 
 
 export default function Accordian () {
-  const [singleToggleAcc, setSingleToggleAcc] = useState(accordianItems);
+  const [singleOpenId, setSingleOpenId] = useState<number | null>(null);
 
-  const [multiToggleAcc, setMultiToggleAcc] = useState(accordianItems);
+  const [openItems, setOpenItems] = useState<number[]>([]);
 
-  const toggleSingleAccordian = (item: AccordianItems) => {
-    setSingleToggleAcc((prev) => {
-      return prev.map((data) => {
-        return { ...data, isOpen: data.id === item.id ? !data.isOpen : false };
-      });
-    });
+  const toggleSingleAccordian = (id: number) => {
+    setSingleOpenId((prev) => prev === id ? null : id);
   };
 
-  const toggleMultipleAccordian = (item: AccordianItems) => {
-    setMultiToggleAcc((prev) => {
-      return prev.map((data) => {
-        return { ...data, isOpen: data.id === item.id ? !data.isOpen : data.isOpen };
-      });
-    });
+  const toggleMultipleAccordian = (id: number) => {
+    setOpenItems((prev) => prev?.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]);
   };
 
   return (
@@ -57,15 +49,15 @@ export default function Accordian () {
 
       <div className={styles.accordianCon}>
         <div>
-          {singleToggleAcc.map((item) => {
+          {accordianItems.map((item) => {
             return (
-              <div onClick={() => toggleSingleAccordian(item)} key={item.id}>
+              <div onClick={() => toggleSingleAccordian(item.id)} key={item.id}>
                 <div className={`${styles.title} ${item.isOpen ? styles.active : ''}`}>
                   <p>{item.title}</p>
-                  {!item.isOpen ? <span>+</span> : <span>-</span>}
+                  {singleOpenId !== item.id ? <span>+</span> : <span>-</span>}
                 </div>
                 {
-                  item.isOpen && <p className={styles.content}>{item.content}</p>
+                  singleOpenId === item.id && <p className={styles.content}>{item.content}</p>
                 }
               </div>
             );
@@ -75,15 +67,15 @@ export default function Accordian () {
 
         <div>
           <p className={styles.multiSubHeading}>Toggle Multiple Sections</p>
-          {multiToggleAcc.map((item) => {
+          {accordianItems.map((item) => {
             return (
-              <div onClick={() => toggleMultipleAccordian(item)} key={item.id}>
+              <div onClick={() => toggleMultipleAccordian(item.id)} key={item.id}>
                 <div className={`${styles.title} ${item.isOpen ? styles.active : ''}`}>
                   <p>{item.title}</p>
-                  {!item.isOpen ? <span>+</span> : <span>-</span>}
+                  {!openItems.includes(item.id) ? <span>+</span> : <span>-</span>}
                 </div>
                 {
-                  item.isOpen && <p className={styles.content}>{item.content}</p>
+                  openItems.includes(item.id) && <p className={styles.content}>{item.content}</p>
                 }
               </div>
             );
