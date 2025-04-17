@@ -1,6 +1,7 @@
 'use client';
 import { useState } from "react";
 import styles from "./Tab.module.scss";
+import { X } from "lucide-react";
 
 const tabItems = [
   { id: 1, title: 'London', content: 'London is the capital city of England.' },
@@ -9,7 +10,7 @@ const tabItems = [
 ];
 
 export default function Tab () {
-  const [openTab, setOpenTab] = useState(tabItems[0].id);
+  const [openTab, setOpenTab] = useState<number | null>(tabItems[0].id);
 
 
   const handleToggleTab = (id: number) => {
@@ -32,13 +33,15 @@ export default function Tab () {
           })
         }
       </div>
-      <div className={styles.contentCon}>
+      <div className={`${styles.contentCon} ${openTab === null ? styles.deactivateTab : ''}`}>
+        {openTab === null ? null : <X onClick={() => setOpenTab(null)} className={styles.closeTab} />}
         {
           tabItems.map((tab) => {
             return (
-              <div key={tab.id}>
+              <div className={styles.titleAndContentCon} key={tab.id}>
                 {openTab === tab.id &&
-                  <div className={styles.tabContent}>
+                  <div >
+                    <p className={styles.tabConTitle}>{tab.title}</p>
                     <p>{tab.content}</p>
                   </div>
                 }
