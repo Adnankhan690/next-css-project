@@ -26,6 +26,7 @@ const Sidebar: React.FC = () => {
         { name: 'Menu Icon', path: '/menu/menu-icon' },
         { name: 'Accordian', path: '/menu/accordian' },
         { name: 'Tabs', path: '/menu/tabs' },
+        {name: 'Tab Headers', path: '/menu/tab-headers'}
       ],
     },
     { name: 'Images', icon: <User size={20} />, path: '/profile', subItem: [] },
