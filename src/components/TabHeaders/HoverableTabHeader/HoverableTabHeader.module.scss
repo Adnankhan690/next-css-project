@@ -1,0 +1,122 @@
+.mainCon {
+  border: 1px solid #e0e0e0;
+}
+
+.tabBtnCon {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tabWithTitle {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.switchedTab {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+
+.textCon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.textCon>p:first-child {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.activeTab {
+  color: white;
+}
+
+.switchedTabFirst {
+  background-color: #3498db;
+}
+
+.switchedTabSecond {
+  background-color: #e74c3c;
+}
+
+.switchedTabThird {
+  background-color: #2ecc71;
+}
+
+.switchedTabFourth {
+  background-color: #9b59b6;
+}
+
+// Tab button colors
+.tabFirst {
+  border-color: #3498db !important;
+
+  p {
+    color: #3498db;
+  }
+
+  &.activeTab {
+    background-color: #3498db;
+
+    p {
+      color: white !important;
+    }
+  }
+}
+
+.tabSecond {
+  border-color: #e74c3c !important;
+
+  p {
+    color: #e74c3c;
+  }
+
+  &.activeTab {
+    background-color: #e74c3c;
+
+    p {
+      color: white !important;
+    }
+  }
+}
+
+.tabThird {
+  border-color: #2ecc71 !important;
+
+  p {
+    color: #2ecc71;
+  }
+
+  &.activeTab {
+    background-color: #2ecc71;
+
+    p {
+      color: white !important;
+    }
+  }
+}
+
+.tabFourth {
+  border-color: #9b59b6 !important;
+
+  p {
+    color: #9b59b6;
+  }
+
+  &.activeTab {
+    background-color: #9b59b6;
+
+    p {
+      color: white !important;
+    }
+  }
+}
