@@ -1,0 +1,29 @@
+.topNavCon {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.mainCon {
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+}
+
+.mainCon p {
+  float: left;
+  padding: 14px 16px;
+  font-size: 17px;
+  color: #f2f2f2;
+  text-align: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #ddd;
+    color: #000;
+  }
+}
+
+.mainCon p.active {
+  background-color: #04AA6D;
+  color: white;
+}
