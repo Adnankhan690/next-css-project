@@ -3,11 +3,18 @@ import { useState } from "react";
 import styles from "./TabHeaders.module.scss";
 
 const tabHeadersData = [
-  { id: 1, title: 'London', content: 'London is the capital city of England.' },
-  { id: 2, title: 'Paris', content: 'Paris is the capital of France.' },
-  { id: 3, title: 'Tokyo', content: 'Tokyo is the capital of Japan.' },
-  { id: 4, title: 'Oslo', content: 'Oslo is the capital of Norway.' },
+  { id: 1, title: 'London', content: 'London is the capital city of England.', color: '#FF0000' },
+  { id: 2, title: 'Paris', content: 'Paris is the capital of France.', color: '#00FF00' },
+  { id: 3, title: 'Tokyo', content: 'Tokyo is the capital of Japan.', color: '#0000FF' },
+  { id: 4, title: 'Oslo', content: 'Oslo is the capital of Norway.', color: '#FFFF00' },
 ];
+
+const tabHeadersMaper = {
+  [tabHeadersData[0].id]: 'First',
+  [tabHeadersData[1].id]: 'Second',
+  [tabHeadersData[2].id]: 'Third',
+  [tabHeadersData[3].id]: 'Fourth',
+};
 
 export default function TabHeadersComp () {
   const [openId, setOpenId] = useState(1);
@@ -18,13 +25,13 @@ export default function TabHeadersComp () {
 
   return (
     <div className={styles.mainCon}>
-      <div className={`${styles.switchedTab} ${styles[`switchedTab${openId}`]}`}>
+      <div className={`${styles.switchedTab} ${styles[`switchedTab${tabHeadersMaper[openId]}`]}`}>
         {tabHeadersData.map((tab) => {
           return (
             <div key={tab.id}>
               {openId === tab.id &&
                 <div className={styles.textCon}>
-                  <p className={styles[`tabTitle${tab.id}`]}>{tab.title}</p>
+                  <p className={styles[`tabTitle${tabHeadersMaper[openId]}`]}>{tab.title}</p>
                   <p>{tab.content}</p>
                 </div>
               }
@@ -36,7 +43,7 @@ export default function TabHeadersComp () {
       <div className={styles.tabBtnCon}>
         {tabHeadersData.map((tab) => {
           const isActive = tab.id === openId;
-          const tabClass = `tab${tab.id}`;
+          const tabClass = `tab${tabHeadersMaper[tab.id]}`;
           return (
             <div
               onClick={() => handleToggleTab(tab.id)}
