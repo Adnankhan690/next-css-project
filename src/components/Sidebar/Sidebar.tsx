@@ -1,5 +1,4 @@
 'use client';
-
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -30,6 +29,7 @@ const Sidebar: React.FC = () => {
         { name: 'Top Navigation', path: '/menu/top-navigation' },
         { name: 'Responsive Topnav', path: '/menu/responsive-topnav' },
         { name: 'Search Menu', path: '/menu/search-menu' },
+        { name: 'Fixed Sidebar', path: '/menu/fixed-sidebar' },
       ],
     },
     { name: 'Images', icon: <User size={20} />, path: '/profile', subItem: [] },
