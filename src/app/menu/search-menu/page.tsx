@@ -90,7 +90,7 @@ export default function SearchMenu () {
 
             Some other text..Some text..Some text..Some text..Some text..Some text..Some text..Some text..
 
-            Some text..
+            Some text.. 
           </p>
 
         </div>
