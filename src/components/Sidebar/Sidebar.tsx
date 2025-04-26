@@ -29,6 +29,7 @@ const Sidebar: React.FC = () => {
         { name: 'Tab Headers', path: '/menu/tab-headers' },
         { name: 'Top Navigation', path: '/menu/top-navigation' },
         { name: 'Responsive Topnav', path: '/menu/responsive-topnav' },
+        { name: 'Search Menu', path: '/menu/search-menu' },
       ],
     },
     { name: 'Images', icon: <User size={20} />, path: '/profile', subItem: [] },
